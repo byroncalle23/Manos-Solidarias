@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Juan Renny Contreras Gordillo">
+    <meta name="description" content="Conoce las tareas de voluntariado y consulta cómo apoyar la recepción y preparación de donaciones.">
+    <title>Manos Solidarias | Voluntariado</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        #presentacion-voluntariado { background-color: #ffffff; }
+        .nota-voluntariado { color: #65595c; }
+    </style>
+</head>
+<body>
+    <header id="cabecera">
+        <a class="marca" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt="Manos en tono piel sosteniendo un corazón rojo"><span class="nombre-marca">manos<span>solidarias</span></span></a>
+        <button id="boton-menu" class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-sitio">Menú</button>
+        <nav id="menu-sitio" class="menu" aria-label="Navegación principal">
+            <a href="index.html" onclick="return confirmarSalida();">Inicio</a>
+            <a href="campanas.html" onclick="return confirmarSalida();">Campañas</a>
+            <a href="como-donar.html" onclick="return confirmarSalida();">Cómo donar</a>
+            <a class="pagina-actual" aria-current="page" href="voluntariado.html" onclick="return confirmarSalida();">Voluntariado</a>
+            <a href="puntos-recoleccion.html" onclick="return confirmarSalida();">Dónde entregar</a>
+            <div class="gestion-nav">
+                <button id="boton-gestion" class="boton-gestion" type="button" aria-expanded="false" aria-controls="enlaces-gestion">Gestión <span aria-hidden="true">▾</span></button>
+                <div id="enlaces-gestion" class="enlaces-gestion" style="display: none;">
+                    <a href="crud-campanas.html" onclick="return confirmarSalida();">Gestión de campañas</a>
+                    <a href="crud-donaciones.html" onclick="return confirmarSalida();">Registro de donaciones</a>
+                    <a href="crud-donantes.html" onclick="return confirmarSalida();">Registro de donantes</a>
+                    <a href="crud-voluntarios.html" onclick="return confirmarSalida();">Registro de voluntarios</a>
+                    <a href="crud-puntos.html" onclick="return confirmarSalida();">Gestión de puntos</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="presentacion-voluntariado" class="seccion portada-voluntariado">
+            <div class="texto-voluntariado">
+                <p class="etiqueta">Voluntariado</p>
+                <h1>Tu tiempo<br>también ayuda.</h1>
+                <p class="introduccion">Detrás de cada aporte hay personas que lo reciben, lo revisan y lo dejan listo para entregar. Conoce las tareas y elige dónde te gustaría colaborar.</p>
+                <div class="acciones-portada"><a class="boton boton-principal" href="#tareas-voluntariado">Conocer las tareas</a><a class="enlace-catalogo" href="crud-voluntarios.html" onclick="return confirmarSalida();">Registrar un voluntario</a></div>
+                
+            </div>
+            <figure class="foto-voluntariado">
+                <img src="img/equipo-voluntariado.png" alt="Equipo de voluntarios recibiendo, clasificando y preparando cajas de donaciones en un centro comunitario">
+                <figcaption class="nota-voluntariado">Ayuda a recibir, clasificar y preparar las donaciones para su entrega.</figcaption>
+            </figure>
+        </section>
+        <section id="tareas-voluntariado" class="seccion tareas-voluntariado" aria-labelledby="titulo-tareas">
+            <div class="titulo-seccion"><div><h2 id="titulo-tareas">Encuentra tu forma de apoyar</h2><p>Selecciona una tarea para conocer qué harías y cómo prepararte.</p></div></div>
+            <div class="consulta-tareas">
+                <div class="opciones-tareas" aria-label="Tareas de voluntariado">
+                    <button id="tarea-recepcion" class="opcion-tarea tarea-activa" type="button" aria-pressed="true" aria-controls="detalle-recepcion"><span>Recepción</span>Orienta a quienes llevan sus aportes.</button>
+                    <button id="tarea-clasificacion" class="opcion-tarea" type="button" aria-pressed="false" aria-controls="detalle-clasificacion"><span>Clasificación</span>Ayuda a revisar y separar los artículos.</button>
+                    <button id="tarea-preparacion" class="opcion-tarea" type="button" aria-pressed="false" aria-controls="detalle-preparacion"><span>Preparación</span>Deja los paquetes listos para entregar.</button>
+                </div>
+                <div class="panel-tareas">
+                    <p id="estado-tareas" class="ayuda" role="status" aria-live="polite">Consultando la tarea de recepción.</p>
+                    <article id="detalle-recepcion" class="detalle-tarea">
+                        <p class="etiqueta">El primer contacto</p><h3>Recibe y orienta</h3>
+                        <p>Ayuda a que cada persona sepa dónde dejar su aporte y qué artículos recibe la campaña.</p>
+                        <ul><li>Consulta la lista de artículos solicitados antes de empezar.</li><li>Indica dónde colocar los alimentos, la ropa y los juguetes.</li><li>Consulta al responsable cuando un aporte no coincida con lo solicitado.</li></ul>
+                        <p class="consejo-tarea"><strong>Para esta tarea:</strong> escucha con atención y mantén despejada la zona de recepción.</p>
+                        <a class="boton boton-principal" href="crud-voluntarios.html#tarea-0" onclick="return confirmarSalida();">Elegir recepción</a>
+                    </article>
+                    <article id="detalle-clasificacion" class="detalle-tarea" style="display: none;">
+                        <p class="etiqueta">Cada artículo en su lugar</p><h3>Revisa y clasifica</h3>
+                        <p>Separa los aportes para que el equipo pueda identificar qué recibió y en qué condiciones está.</p>
+                        <ul><li>Agrupa los artículos por tipo y sigue las indicaciones de la campaña.</li><li>Revisa empaques, fechas y el estado general de las prendas o juguetes.</li><li>Deja aparte los artículos que necesiten una revisión del responsable.</li></ul>
+                        <p class="consejo-tarea"><strong>Para esta tarea:</strong> trabaja con orden y consulta cómo registrar las cantidades recibidas.</p>
+                        <a class="boton boton-principal" href="crud-voluntarios.html#tarea-1" onclick="return confirmarSalida();">Elegir clasificación</a>
+                    </article>
+                    <article id="detalle-preparacion" class="detalle-tarea" style="display: none;">
+                        <p class="etiqueta">Listo para compartir</p><h3>Prepara los paquetes</h3>
+                        <p>Organiza los artículos revisados y prepara los paquetes según las indicaciones de quien coordina.</p>
+                        <ul><li>Usa cajas o bolsas limpias y apropiadas para su contenido.</li><li>Mantén los alimentos separados de la ropa y los juguetes.</li><li>Etiqueta el contenido y entrega los paquetes al responsable.</li></ul>
+                        <p class="consejo-tarea"><strong>Para esta tarea:</strong> confirma qué debe llevar cada paquete antes de cerrarlo.</p>
+                        <a class="boton boton-principal" href="crud-voluntarios.html#tarea-2" onclick="return confirmarSalida();">Elegir preparación</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="seccion preparacion-voluntariado" aria-labelledby="titulo-preparacion">
+            <div><h2 id="titulo-preparacion">Antes de sumarte a una jornada</h2><p>Acuerda la tarea y el horario con su responsable. Comenta cuánto tiempo puedes dedicar y si necesitas alguna adaptación para participar.</p><button id="consultar-orientacion" class="enlace-boton" type="button" aria-expanded="false" aria-controls="orientacion-voluntariado">Ver qué conviene confirmar</button></div>
+            <div id="orientacion-voluntariado" class="orientacion-voluntariado" style="display: none;"><h3>Confirma los detalles</h3><ul><li>El lugar, la hora de llegada y la persona que coordina.</li><li>La tarea asignada y las indicaciones para realizarla.</li><li>Los materiales que proporciona la organización.</li><li>Las pausas y a quién acudir si necesitas ayuda.</li></ul><p>Confirma tu participación y cualquier cambio de disponibilidad con la persona responsable.</p></div>
+        </section>
+        <section class="seccion invitacion-donante"><div><h2>Deja anotada tu disponibilidad</h2><p>Registra una tarea, un turno y las horas disponibles por jornada.</p></div><a class="boton boton-principal" href="crud-voluntarios.html" onclick="return confirmarSalida();">Ir al registro de voluntarios</a></section>
+    </main>
+    <footer class="pie"><div class="contenido-pie"><a class="marca marca-pie" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt=""><span class="nombre-marca">manos<span>solidarias</span></span></a><p>Donaciones y campañas solidarias</p><a href="#cabecera">Volver arriba ↑</a><a href="index.html#proposito" onclick="return confirmarSalida();">Nuestro propósito</a></div></footer>
+    <script src="js/voluntariado.js"></script>
+    <script src="js/navegacion.js"></script>
+</body>
+</html>

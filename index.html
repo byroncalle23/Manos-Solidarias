@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="John Byron Calle Burgos">
+    <meta name="description" content="Conoce Manos Solidarias y descubre cómo organizar una campaña de donación para tu comunidad.">
+    <title>Manos Solidarias | Inicio</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        #presentacion { background-color: #ffffff; }
+        .mensaje-principal { color: #292525; }
+    </style>
+</head>
+<body>
+    <header id="cabecera">
+        <a class="marca" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt="Manos en tono piel sosteniendo un corazón rojo"><span class="nombre-marca">manos<span>solidarias</span></span></a>
+        <button id="boton-menu" class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-sitio">Menú</button>
+        <nav id="menu-sitio" class="menu" aria-label="Navegación principal">
+            <a class="pagina-actual" aria-current="page" href="index.html" onclick="return confirmarSalida();">Inicio</a>
+            <a href="campanas.html" onclick="return confirmarSalida();">Campañas</a>
+            <a href="como-donar.html" onclick="return confirmarSalida();">Cómo donar</a>
+            <a href="voluntariado.html" onclick="return confirmarSalida();">Voluntariado</a>
+            <a href="puntos-recoleccion.html" onclick="return confirmarSalida();">Dónde entregar</a>
+            <div class="gestion-nav">
+                <button id="boton-gestion" class="boton-gestion" type="button" aria-expanded="false" aria-controls="enlaces-gestion">Gestión <span aria-hidden="true">▾</span></button>
+                <div id="enlaces-gestion" class="enlaces-gestion" style="display: none;">
+                    <a href="crud-campanas.html" onclick="return confirmarSalida();">Gestión de campañas</a>
+                    <a href="crud-donaciones.html" onclick="return confirmarSalida();">Registro de donaciones</a>
+                    <a href="crud-donantes.html" onclick="return confirmarSalida();">Registro de donantes</a>
+                    <a href="crud-voluntarios.html" onclick="return confirmarSalida();">Registro de voluntarios</a>
+                    <a href="crud-puntos.html" onclick="return confirmarSalida();">Gestión de puntos</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="presentacion" class="portada">
+            <div class="texto-portada">
+                <p class="etiqueta">Donaciones y campañas solidarias</p>
+                <h1 class="mensaje-principal">Tu ayuda puede<br>cambiar un día<span class="punto-rojo">.</span></h1>
+                <p class="introduccion">Encuentra una campaña para aportar ropa, alimentos o juguetes y apoyar a personas de tu comunidad.</p>
+                <div class="acciones-portada"><a class="boton boton-principal" href="campanas.html" onclick="return confirmarSalida();">Explorar campañas</a><a class="boton boton-secundario" href="crud-campanas.html" onclick="return confirmarSalida();">Crear campaña</a></div>
+                <p class="nota">Empieza por conocer qué necesita cada campaña.</p>
+            </div>
+            <figure class="foto-portada">
+                <img src="img/voluntarios.png" alt="Imagen ilustrativa de voluntarios reuniendo ropa y alimentos en una comunidad">
+                <figcaption class="mensaje-foto"><div><p class="etiqueta">Juntos llegamos más lejos</p><h2>Una campaña. Muchas manos.</h2></div><span class="corazon" aria-hidden="true">♥</span></figcaption>
+            </figure>
+        </section>
+        <nav class="seccion enlaces-inicio" aria-label="Secciones de Inicio"><span>En esta página:</span><a href="#como-ayudar">Cómo ayudar</a><a href="#proposito">Nuestro propósito</a></nav>
+        <section id="como-ayudar" class="seccion">
+            <div class="titulo-seccion"><div><p class="etiqueta">Antes de llevar tu donación</p><h2>Tres pasos para hacer la diferencia</h2></div><p>Revisa qué se necesita<br>y dónde puedes entregarlo.</p></div>
+            <div class="pasos">
+                <button id="paso-1" aria-controls="detalle-paso-1" class="paso paso-activo" type="button" aria-pressed="true"><img class="imagen-paso" src="img/conoce-la-causa.png" alt="Voluntarios escuchando las necesidades de una comunidad"><span class="numero-paso">01</span><span class="titulo-paso">Conoce la causa</span><span class="descripcion-paso">Revisa qué busca reunir la campaña y a qué personas o comunidad ayudará.</span></button>
+                <button id="paso-2" aria-controls="detalle-paso-2" class="paso" type="button" aria-pressed="false"><img class="imagen-paso" src="img/prepara-tu-aporte.png" alt="Voluntarios preparando una caja con ropa y alimentos"><span class="numero-paso">02</span><span class="titulo-paso">Prepara tu aporte</span><span class="descripcion-paso">Consulta qué donaciones acepta la campaña. Lleva alimentos cerrados y objetos limpios y en buen estado.</span></button>
+                <button id="paso-3" aria-controls="detalle-paso-3" class="paso" type="button" aria-pressed="false"><img class="imagen-paso" src="img/coordina-la-entrega.png" alt="Una donante entregando su aporte en un punto de recolección"><span class="numero-paso">03</span><span class="titulo-paso">Coordina la entrega</span><span class="descripcion-paso">Confirma dónde se reciben las donaciones y hasta qué fecha puedes entregarlas.</span></button>
+            </div>
+        <div class="detalle-paso-inicio">
+                <div id="detalle-paso-1"><p>Empieza por revisar el objetivo, los artículos solicitados y la fecha límite de una campaña.</p><a href="campanas.html" onclick="return confirmarSalida();">Consultar campañas</a></div>
+                <div id="detalle-paso-2" style="display: none;"><p>Revisa el estado de los artículos y sepáralos antes de preparar las cajas o bolsas.</p><a href="como-donar.html#articulos-aceptados" onclick="return confirmarSalida();">Consultar cómo preparar el aporte</a></div>
+                <div id="detalle-paso-3" style="display: none;"><p>Confirma la dirección y la fecha de la campaña elegida. Consulta también los horarios y artículos que recibe cada punto de recolección.</p><a href="puntos-recoleccion.html" onclick="return confirmarSalida();">Consultar dónde entregar</a></div>
+            </div>
+        </section>
+        <section id="proposito" class="seccion compromiso">
+            <div class="texto-compromiso"><p class="etiqueta">Nuestro propósito</p><h2>La solidaridad se construye<br>en comunidad.</h2><p>Una campaña debe explicar a quién ayuda, qué necesita y cómo colaborar. Organiza esos datos para que otras personas sepan cómo aportar.</p>
+                <button id="boton-proposito" class="enlace-boton" type="button" aria-expanded="false" aria-controls="detalle-proposito">Conocer nuestro compromiso +</button>
+                <div id="detalle-proposito" style="display: none;"><h3>Donaciones con información clara</h3><p>Revisa el objetivo de la campaña, los datos de contacto y el lugar de entrega. Antes de donar, confirma la información con quien la organiza.</p></div>
+            </div>
+            <aside class="nota-comunidad"><img src="img/manos-corazon.png" alt="" class="logo-iniciativa"><p class="etiqueta">¿Tienes una iniciativa?</p><h3>Dale un lugar<br>a tu campaña.</h3><p>Indica a quién quieres ayudar y qué donaciones necesitas. Registra los datos de tu campaña para tenerlos organizados.</p><a class="boton boton-principal" href="crud-campanas.html" onclick="return confirmarSalida();">Crear campaña</a></aside>
+        </section>
+        <section class="seccion franja-donaciones"><div><p class="etiqueta">Pequeños aportes, nuevas posibilidades</p><h2>Hay muchas formas de ayudar.</h2></div><div class="tipos-donacion"><span>Ropa en buen estado</span><span>Alimentos no perecibles</span><span>Juguetes completos</span></div></section>
+    </main>
+    <footer class="pie"><div class="contenido-pie"><a class="marca marca-pie" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt=""><span class="nombre-marca">manos<span>solidarias</span></span></a><p>Donaciones y campañas solidarias</p><a href="#cabecera">Volver arriba ↑</a><a href="index.html#proposito" onclick="return confirmarSalida();">Nuestro propósito</a></div></footer>
+    <script src="js/inicio.js"></script>
+    <script src="js/navegacion.js"></script>
+</body>
+</html>

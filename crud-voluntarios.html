@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Juan Renny Contreras Gordillo">
+    <meta name="description" content="Registra voluntarios, sus tareas y su disponibilidad para apoyar campañas solidarias.">
+    <title>Manos Solidarias | Registro de voluntarios</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        #encabezado-voluntarios { background-color: #ffffff; }
+        .nombre-voluntario { color: #a31d2b; }
+    </style>
+</head>
+<body>
+    <header id="cabecera">
+        <a class="marca" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt="Manos en tono piel sosteniendo un corazón rojo"><span class="nombre-marca">manos<span>solidarias</span></span></a>
+        <button id="boton-menu" class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-sitio">Menú</button>
+        <nav id="menu-sitio" class="menu" aria-label="Navegación principal">
+            <a href="index.html" onclick="return confirmarSalida();">Inicio</a>
+            <a href="campanas.html" onclick="return confirmarSalida();">Campañas</a>
+            <a href="como-donar.html" onclick="return confirmarSalida();">Cómo donar</a>
+            <a href="voluntariado.html" onclick="return confirmarSalida();">Voluntariado</a>
+            <a href="puntos-recoleccion.html" onclick="return confirmarSalida();">Dónde entregar</a>
+            <div class="gestion-nav">
+                <button id="boton-gestion" class="boton-gestion pagina-actual" type="button" aria-expanded="false" aria-controls="enlaces-gestion">Gestión <span aria-hidden="true">▾</span></button>
+                <div id="enlaces-gestion" class="enlaces-gestion" style="display: none;">
+                    <a href="crud-campanas.html" onclick="return confirmarSalida();">Gestión de campañas</a>
+                    <a href="crud-donaciones.html" onclick="return confirmarSalida();">Registro de donaciones</a>
+                    <a href="crud-donantes.html" onclick="return confirmarSalida();">Registro de donantes</a>
+                    <a class="pagina-actual" aria-current="page" href="crud-voluntarios.html" onclick="return confirmarSalida();">Registro de voluntarios</a>
+                    <a href="crud-puntos.html" onclick="return confirmarSalida();">Gestión de puntos</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="ubicacion-gestion"><nav class="ruta-pagina" aria-label="Ubicación en el sitio"><a href="index.html" onclick="return confirmarSalida();">Inicio</a><span aria-hidden="true">/</span><span>Gestión</span><span aria-hidden="true">/</span><span>Registro de voluntarios</span></nav><p class="regreso-contexto"><a href="voluntariado.html" onclick="return confirmarSalida();">Volver a Voluntariado</a></p></div>
+        <section id="encabezado-voluntarios" class="encabezado-gestion encabezado-voluntarios"><div><p class="etiqueta">Registro de voluntarios</p><h1>Organiza las manos<br>que quieren ayudar.</h1><p>Anota los datos de una persona, la tarea que prefiere y su disponibilidad. Después puedes consultar, corregir o eliminar el registro.</p></div><aside class="nota-registro"><h2>Organiza su disponibilidad</h2><p>Indica la tarea que prefiere, los días disponibles y las horas que puede dedicar a cada jornada.</p></aside></section>
+        <section class="seccion zona-gestion">
+            <div class="panel-formulario"><h2 id="titulo-voluntario">Registrar voluntario</h2><p>Completa los datos del voluntario. La orientación recibida puede quedar sin marcar.</p>
+                
+                <form id="formulario-voluntario">
+                    <div class="campo" id="campo-error-nombre"><label for="nombre-voluntario">Nombre completo</label><div class="control"><input id="nombre-voluntario" name="nombre" type="text" aria-describedby="ayuda-nombre error-nombre"></div><p id="ayuda-nombre" class="ayuda">De 5 a 80 caracteres.</p><p id="error-nombre" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-correo"><label for="correo-voluntario">Correo de contacto</label><div class="control"><input id="correo-voluntario" name="correo" type="text" aria-describedby="error-correo"></div><p id="error-correo" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-celular"><label for="celular-voluntario">Celular de contacto</label><div class="control"><input id="celular-voluntario" name="celular" type="text" aria-describedby="ayuda-celular error-celular"></div><p id="ayuda-celular" class="ayuda">Diez dígitos, comienza con 09, sin espacios ni signos.</p><p id="error-celular" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-sector"><label for="sector-voluntario">Ciudad y sector</label><div class="control"><input id="sector-voluntario" name="sector" type="text" aria-describedby="ayuda-sector error-sector"></div><p id="ayuda-sector" class="ayuda">Indica la ciudad y el sector en 5 a 120 caracteres.</p><p id="error-sector" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-tarea"><label for="tarea-voluntario">Tarea de apoyo</label><div class="control"><select id="tarea-voluntario" name="tarea" aria-describedby="error-tarea"><option value="">Selecciona una tarea</option><option value="Recepción">Recepción</option><option value="Clasificación">Clasificación</option><option value="Preparación">Preparación</option></select></div><p id="error-tarea" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-disponibilidad"><label for="disponibilidad-voluntario">Días disponibles</label><div class="control"><select id="disponibilidad-voluntario" name="disponibilidad" aria-describedby="error-disponibilidad"><option value="">Selecciona una opción</option><option value="Entre semana">Entre semana</option><option value="Fin de semana">Fin de semana</option></select></div><p id="error-disponibilidad" class="error" aria-live="polite"></p></div>
+                    <fieldset class="campo" aria-describedby="ayuda-turno error-turno" id="campo-error-turno"><legend>Turno preferido</legend><label class="opcion"><input type="radio" name="turno" value="Mañana"> Mañana</label><label class="opcion"><input type="radio" name="turno" value="Tarde"> Tarde</label><p id="ayuda-turno" class="ayuda">Mañana de 08:00 a 12:00 o tarde de 14:00 a 18:00.</p><p id="error-turno" class="error" aria-live="polite"></p></fieldset>
+                    <div class="campo" id="campo-error-horas"><label for="horas-voluntario">Horas disponibles por jornada</label><div class="control"><input id="horas-voluntario" name="horas" type="text" aria-describedby="ayuda-horas error-horas"></div><p id="ayuda-horas" class="ayuda">Un número entero de 1 a 4, dentro del turno elegido.</p><p id="error-horas" class="error" aria-live="polite"></p></div>
+                    <div class="campo campo-ancho" id="campo-error-experiencia"><label for="experiencia-voluntario">Experiencia o disposición para aprender</label><div class="control"><textarea id="experiencia-voluntario" name="experiencia" rows="3" aria-describedby="ayuda-experiencia error-experiencia"></textarea></div><p id="ayuda-experiencia" class="ayuda">De 15 a 300 caracteres. Puedes indicar que sería tu primera participación.</p><p id="error-experiencia" class="error" aria-live="polite"></p></div>
+                    <div class="campo campo-ancho"><label class="opcion" for="orientacion-voluntario"><input id="orientacion-voluntario" name="orientacion" type="checkbox"> Ya recibió la orientación inicial de la tarea</label><p class="ayuda">Es opcional. Sin marcar, se mostrará como orientación pendiente.</p></div>
+                    <div class="acciones-formulario"><button id="guardar-voluntario" class="boton boton-principal" type="button">Registrar voluntario</button><button id="cancelar-voluntario" class="boton boton-secundario" type="button" style="display: none;">Cancelar edición</button></div>
+                    <p id="estado-voluntario" class="estado" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+            <section class="panel-registros" aria-labelledby="titulo-voluntarios"><div class="cabecera-registros"><h2 id="titulo-voluntarios">Voluntarios registrados</h2><span id="total-voluntarios" class="contador">0 voluntarios</span></div><p id="resumen-voluntarios" class="ayuda" role="status" aria-live="polite">Todavía no hay voluntarios registrados.</p><p id="sin-voluntarios" class="vacio">Completa el formulario para registrar al primer voluntario.</p><div id="lista-voluntarios"></div></section>
+        </section>
+    </main>
+    <footer class="pie"><div class="contenido-pie"><p>Manos Solidarias</p><a href="voluntariado.html" onclick="return confirmarSalida();">Volver a Voluntariado</a><a href="#cabecera">Volver arriba ↑</a><a href="index.html#proposito" onclick="return confirmarSalida();">Nuestro propósito</a></div></footer>
+    <script src="js/voluntarios.js"></script>
+    <script src="js/navegacion.js"></script>
+</body>
+</html>

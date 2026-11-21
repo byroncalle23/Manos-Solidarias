@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="John Byron Calle Burgos">
+    <meta name="description" content="Gestión de campañas solidarias con creación, consulta, edición y eliminación de registros.">
+    <title>Manos Solidarias | Gestión de campañas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        #encabezado-gestion { background-color: #ffffff; }
+        .nombre-campana { color: #a31d2b; }
+    </style>
+</head>
+<body>
+    <header id="cabecera">
+        <a class="marca" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt="Manos en tono piel sosteniendo un corazón rojo"><span class="nombre-marca">manos<span>solidarias</span></span></a>
+        <button id="boton-menu" class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-sitio">Menú</button>
+        <nav id="menu-sitio" class="menu" aria-label="Navegación principal">
+            <a href="index.html" onclick="return confirmarSalida();">Inicio</a>
+            <a href="campanas.html" onclick="return confirmarSalida();">Campañas</a>
+            <a href="como-donar.html" onclick="return confirmarSalida();">Cómo donar</a>
+            <a href="voluntariado.html" onclick="return confirmarSalida();">Voluntariado</a>
+            <a href="puntos-recoleccion.html" onclick="return confirmarSalida();">Dónde entregar</a>
+            <div class="gestion-nav">
+                <button id="boton-gestion" class="boton-gestion pagina-actual" type="button" aria-expanded="false" aria-controls="enlaces-gestion">Gestión <span aria-hidden="true">▾</span></button>
+                <div id="enlaces-gestion" class="enlaces-gestion" style="display: none;">
+                    <a class="pagina-actual" aria-current="page" href="crud-campanas.html" onclick="return confirmarSalida();">Gestión de campañas</a>
+                    <a href="crud-donaciones.html" onclick="return confirmarSalida();">Registro de donaciones</a>
+                    <a href="crud-donantes.html" onclick="return confirmarSalida();">Registro de donantes</a>
+                    <a href="crud-voluntarios.html" onclick="return confirmarSalida();">Registro de voluntarios</a>
+                    <a href="crud-puntos.html" onclick="return confirmarSalida();">Gestión de puntos</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="ubicacion-gestion"><nav class="ruta-pagina" aria-label="Ubicación en el sitio"><a href="index.html" onclick="return confirmarSalida();">Inicio</a><span aria-hidden="true">/</span><span>Gestión</span><span aria-hidden="true">/</span><span>Gestión de campañas</span></nav><p class="regreso-contexto"><a href="campanas.html" onclick="return confirmarSalida();">Volver al catálogo de campañas</a></p></div>
+        <section id="encabezado-gestion" class="encabezado-gestion">
+            <p class="etiqueta">Organizar también es ayudar</p><h1>Organiza una campaña.<br>Acerca tu ayuda.</h1><p>Indica a quién quieres ayudar y qué donaciones necesitas reunir. Puedes registrar una campaña, consultar sus datos, modificarlos o eliminarla.</p>
+        </section>
+        
+        <section class="seccion zona-gestion">
+            <div class="panel-formulario">
+                <p class="etiqueta">Datos de la iniciativa</p><h2 id="titulo-formulario">Crear campaña</h2>
+                <p>Completa los datos de la campaña. Marca la casilla de voluntarios solo si vas a recibir su apoyo.</p>
+                <!-- Los botones son type="button": toda la validación se ejecuta en JavaScript. -->
+                
+                <form id="formulario-campana">
+                    <div class="campo" id="campo-error-nombre"><label for="nombre-campana">Nombre de la campaña</label><div class="control"><input id="nombre-campana" name="nombre" type="text" aria-describedby="error-nombre"></div><p id="error-nombre" class="error" aria-live="polite"></p></div>
+                    <div class="campo campo-ancho" id="campo-error-objetivo"><label for="objetivo-campana">Objetivo</label><div class="control"><textarea id="objetivo-campana" name="objetivo" rows="3" aria-describedby="error-objetivo"></textarea></div><p id="error-objetivo" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-beneficiarios"><label for="beneficiarios-campana">Personas o comunidad beneficiaria</label><div class="control"><input id="beneficiarios-campana" name="beneficiarios" type="text" aria-describedby="error-beneficiarios"></div><p id="error-beneficiarios" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-ubicacion"><label for="ubicacion-campana">Dirección del punto de recolección</label><div class="control"><input id="ubicacion-campana" name="ubicacion" type="text" aria-describedby="error-ubicacion"></div><p id="error-ubicacion" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-correo"><label for="correo-campana">Correo del responsable</label><div class="control"><input id="correo-campana" name="correo" type="text" aria-describedby="error-correo"></div><p id="error-correo" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-categoria"><label for="categoria-campana">Donación principal aceptada</label><div class="control"><select id="categoria-campana" name="categoria" aria-describedby="error-categoria"><option value="">Selecciona una categoría</option><option value="Alimentos">Alimentos</option><option value="Ropa">Ropa</option><option value="Juguetes">Juguetes</option></select></div><p id="error-categoria" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-meta"><label for="meta-campana">Meta de artículos por reunir</label><div class="control"><input id="meta-campana" name="meta" type="text" aria-describedby="ayuda-meta error-meta"></div><p id="ayuda-meta" class="ayuda">Escribe una cantidad entre 1 y 10000, sin decimales.</p><p id="error-meta" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-fecha"><label for="fecha-campana">Fecha límite</label><div class="control"><input id="fecha-campana" name="fecha" type="date" aria-describedby="ayuda-fecha error-fecha"></div><p id="ayuda-fecha" class="ayuda">Elige la fecha límite para recibir donaciones, entre 2026 y 2100.</p><p id="error-fecha" class="error" aria-live="polite"></p></div>
+                    <fieldset class="campo campo-ancho" id="campo-error-alcance"><legend>Alcance de la campaña</legend><label class="opcion"><input type="radio" name="alcance" value="Barrial"> Barrial</label><label class="opcion"><input type="radio" name="alcance" value="Universitario"> Universitario</label><p id="error-alcance" class="error" aria-live="polite"></p></fieldset>
+                    <div class="campo campo-ancho"><label class="opcion" for="voluntarios-campana"><input id="voluntarios-campana" name="voluntarios" type="checkbox"> Esta campaña recibe apoyo de voluntarios</label></div>
+                    <div class="acciones-formulario"><button id="guardar-campana" class="boton boton-principal" type="button">Crear campaña</button><button id="cancelar-edicion" class="boton boton-secundario" type="button" style="display: none;">Cancelar edición</button></div>
+                    <p id="estado-formulario" class="estado" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+            <section class="panel-registros" aria-labelledby="titulo-registros">
+                <div class="cabecera-registros"><div><p class="etiqueta">Tus iniciativas</p><h2 id="titulo-registros">Campañas registradas</h2></div><span id="total-campanas" class="contador">0 campañas</span></div>
+                
+                <p id="sin-campanas" class="vacio">Todavía no hay campañas. Completa el formulario para crear la primera.</p>
+                <div id="lista-campanas"></div>
+            </section>
+        </section>
+    </main>
+    <footer class="pie"><div class="contenido-pie"><p>Manos Solidarias</p><a href="campanas.html" onclick="return confirmarSalida();">Volver al catálogo de campañas</a><a href="#cabecera">Volver arriba ↑</a><a href="index.html#proposito" onclick="return confirmarSalida();">Nuestro propósito</a></div></footer>
+    <script src="js/campanas.js"></script>
+    <script src="js/navegacion.js"></script>
+</body>
+</html>

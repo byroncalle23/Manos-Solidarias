@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Reyes Triviño Johan Jaret">
+    <meta name="description" content="Registra, consulta, edita y elimina tus aportes de ejemplo.">
+    <title>Manos Solidarias | Registro de donaciones</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>#encabezado-donaciones { background-color: #ffffff; } .nombre-donacion { color: #a31d2b; }</style>
+</head>
+<body>
+<header id="cabecera"><a class="marca" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt="Manos sosteniendo un corazón rojo"><span class="nombre-marca">manos<span>solidarias</span></span></a><button id="boton-menu" class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-sitio">Menú</button>
+        <nav id="menu-sitio" class="menu" aria-label="Navegación principal">
+            <a href="index.html" onclick="return confirmarSalida();">Inicio</a>
+            <a href="campanas.html" onclick="return confirmarSalida();">Campañas</a>
+            <a href="como-donar.html" onclick="return confirmarSalida();">Cómo donar</a>
+            <a href="voluntariado.html" onclick="return confirmarSalida();">Voluntariado</a>
+            <a href="puntos-recoleccion.html" onclick="return confirmarSalida();">Dónde entregar</a>
+            <div class="gestion-nav">
+                <button id="boton-gestion" class="boton-gestion pagina-actual" type="button" aria-expanded="false" aria-controls="enlaces-gestion">Gestión <span aria-hidden="true">▾</span></button>
+                <div id="enlaces-gestion" class="enlaces-gestion" style="display: none;">
+                    <a href="crud-campanas.html" onclick="return confirmarSalida();">Gestión de campañas</a>
+                    <a class="pagina-actual" aria-current="page" href="crud-donaciones.html" onclick="return confirmarSalida();">Registro de donaciones</a>
+                    <a href="crud-donantes.html" onclick="return confirmarSalida();">Registro de donantes</a>
+                    <a href="crud-voluntarios.html" onclick="return confirmarSalida();">Registro de voluntarios</a>
+                    <a href="crud-puntos.html" onclick="return confirmarSalida();">Gestión de puntos</a>
+                </div>
+            </div>
+        </nav></header>
+<main>
+        <div class="ubicacion-gestion"><nav class="ruta-pagina" aria-label="Ubicación en el sitio"><a href="index.html" onclick="return confirmarSalida();">Inicio</a><span aria-hidden="true">/</span><span>Gestión</span><span aria-hidden="true">/</span><span>Registro de donaciones</span></nav><p class="regreso-contexto"><a href="campanas.html" onclick="return confirmarSalida();">Volver al catálogo de campañas</a></p></div><section id="encabezado-donaciones" class="encabezado-gestion encabezado-donaciones"><div><p class="etiqueta">Registro de donaciones</p><h1>Organiza lo que<br>quieres aportar.</h1><p>Elige una campaña del catálogo y anota qué vas a donar. Puedes consultar tus aportes, corregir sus datos o eliminarlos.</p></div><aside class="resumen-donaciones"><p>Tu registro de aportes</p><strong id="resumen-total">0</strong><p id="resumen-texto">Todavía no has registrado donaciones.</p><span>Aportes registrados</span></aside></section>
+<section class="seccion zona-gestion"><div class="panel-formulario"><p class="etiqueta">Datos de la donación</p><h2 id="titulo-donacion">Registrar donación</h2><p>Completa los campos. Marca la casilla de entrega solo si ya dejaste los artículos en el punto de recolección.</p>
+
+                <form id="formulario-donacion"><div class="campo" id="campo-error-nombre"><label for="nombre-donacion">Nombre de quien dona</label><div class="control"><input id="nombre-donacion" name="nombre" type="text" aria-describedby="error-nombre"></div><p id="error-nombre" class="error" aria-live="polite"></p></div>
+<div class="campo" id="campo-error-correo"><label for="correo-donacion">Correo de contacto</label><div class="control"><input id="correo-donacion" name="correo" type="text" aria-describedby="error-correo"></div><p id="error-correo" class="error" aria-live="polite"></p></div>
+<div class="campo" id="campo-error-campana"><label for="campana-donacion">Campaña que recibirá el aporte</label><div class="control"><select id="campana-donacion" name="campana" aria-describedby="error-campana"><option value="">Selecciona una campaña</option><option value="0">Una despensa compartida</option><option value="1">Abrigos para la comunidad</option><option value="2">Juguetes para compartir</option><option value="3">Apoyo a la cocina comunitaria</option><option value="4">Ropa para volver a empezar</option><option value="5">Un espacio para jugar</option></select></div><p id="error-campana" class="error" aria-live="polite"></p></div>
+<div class="campo" id="campo-error-categoria"><label for="categoria-donacion">Tipo de donación</label><div class="control"><select id="categoria-donacion" name="categoria" aria-describedby="ayuda-categoria error-categoria"><option value="">Selecciona una categoría</option><option value="Alimentos">Alimentos</option><option value="Ropa">Ropa</option><option value="Juguetes">Juguetes</option></select></div><p id="ayuda-categoria" class="ayuda">El tipo de aporte debe coincidir con la categoría de la campaña.</p><p id="error-categoria" class="error" aria-live="polite"></p></div>
+<div class="campo" id="campo-error-cantidad"><label for="cantidad-donacion">Cantidad de artículos</label><div class="control"><input id="cantidad-donacion" name="cantidad" type="text" aria-describedby="ayuda-cantidad error-cantidad"></div><p id="ayuda-cantidad" class="ayuda">Un número entero entre 1 y 10000.</p><p id="error-cantidad" class="error" aria-live="polite"></p></div>
+<div class="campo" id="campo-error-fecha"><label for="fecha-donacion">Fecha prevista de entrega</label><div class="control"><input id="fecha-donacion" name="fecha" type="date" aria-describedby="ayuda-fecha error-fecha"></div><p id="ayuda-fecha" class="ayuda">Entre 2026 y la fecha límite de la campaña seleccionada.</p><p id="error-fecha" class="error" aria-live="polite"></p></div>
+<div class="campo" id="campo-error-detalle"><label for="detalle-donacion">¿Qué vas a donar?</label><div class="control"><textarea id="detalle-donacion" name="detalle" rows="3" aria-describedby="ayuda-detalle error-detalle"></textarea></div><p id="ayuda-detalle" class="ayuda">Describe los artículos y su estado en 15 a 300 caracteres.</p><p id="error-detalle" class="error" aria-live="polite"></p></div>
+<fieldset class="campo campo-ancho" id="campo-error-modalidad"><legend>¿Cómo entregarás tu aporte?</legend><label class="opcion"><input type="radio" name="modalidad" value="Entrega directa"> Lo llevaré al punto de recolección</label><label class="opcion"><input type="radio" name="modalidad" value="Coordinar entrega"> Coordinaré la entrega con quien organiza</label><p id="error-modalidad" class="error" aria-live="polite"></p></fieldset>
+<div class="campo campo-ancho"><label class="opcion" for="entregada-donacion"><input id="entregada-donacion" name="entregada" type="checkbox"> Ya entregué esta donación</label></div>
+<div class="acciones-formulario"><button id="guardar-donacion" class="boton boton-principal" type="button">Registrar donación</button><button id="cancelar-donacion" class="boton boton-secundario" type="button" style="display: none;">Cancelar edición</button></div><p id="estado-donacion" class="estado" role="status" aria-live="polite"></p></form></div>
+<section class="panel-registros" aria-labelledby="titulo-aportes"><div class="cabecera-registros"><h2 id="titulo-aportes">Tus aportes registrados</h2><span id="total-donaciones" class="contador">0 donaciones</span></div><p id="sin-donaciones" class="vacio">Todavía no hay donaciones. Completa el formulario para registrar tu primer aporte.</p><div id="lista-donaciones"></div></section></section></main><footer class="pie"><div class="contenido-pie"><a class="marca marca-pie" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt=""><span class="nombre-marca">manos<span>solidarias</span></span></a><p>Donaciones y campañas solidarias</p><a href="#cabecera">Volver arriba ↑</a><a href="index.html#proposito" onclick="return confirmarSalida();">Nuestro propósito</a></div></footer><script src="js/donaciones.js"></script>    <script src="js/navegacion.js"></script>
+</body></html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Méndez Rojas César Nicolas">
+    <meta name="description" content="Registra y gestiona personas u organizaciones donantes.">
+    <title>Manos Solidarias | Registro de donantes</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        #encabezado-donantes { background-color: #ffffff; }
+        .nombre-donante { color: #a31d2b; }
+    </style>
+</head>
+<body>
+    <header id="cabecera"><a class="marca" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt="Manos en tono piel sosteniendo un corazón rojo"><span class="nombre-marca">manos<span>solidarias</span></span></a><button id="boton-menu" class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-sitio">Menú</button>
+        <nav id="menu-sitio" class="menu" aria-label="Navegación principal">
+            <a href="index.html" onclick="return confirmarSalida();">Inicio</a>
+            <a href="campanas.html" onclick="return confirmarSalida();">Campañas</a>
+            <a href="como-donar.html" onclick="return confirmarSalida();">Cómo donar</a>
+            <a href="voluntariado.html" onclick="return confirmarSalida();">Voluntariado</a>
+            <a href="puntos-recoleccion.html" onclick="return confirmarSalida();">Dónde entregar</a>
+            <div class="gestion-nav">
+                <button id="boton-gestion" class="boton-gestion pagina-actual" type="button" aria-expanded="false" aria-controls="enlaces-gestion">Gestión <span aria-hidden="true">▾</span></button>
+                <div id="enlaces-gestion" class="enlaces-gestion" style="display: none;">
+                    <a href="crud-campanas.html" onclick="return confirmarSalida();">Gestión de campañas</a>
+                    <a href="crud-donaciones.html" onclick="return confirmarSalida();">Registro de donaciones</a>
+                    <a class="pagina-actual" aria-current="page" href="crud-donantes.html" onclick="return confirmarSalida();">Registro de donantes</a>
+                    <a href="crud-voluntarios.html" onclick="return confirmarSalida();">Registro de voluntarios</a>
+                    <a href="crud-puntos.html" onclick="return confirmarSalida();">Gestión de puntos</a>
+                </div>
+            </div>
+        </nav></header>
+    <main>
+        <div class="ubicacion-gestion"><nav class="ruta-pagina" aria-label="Ubicación en el sitio"><a href="index.html" onclick="return confirmarSalida();">Inicio</a><span aria-hidden="true">/</span><span>Gestión</span><span aria-hidden="true">/</span><span>Registro de donantes</span></nav><p class="regreso-contexto"><a href="como-donar.html" onclick="return confirmarSalida();">Volver a Cómo donar</a></p></div>
+        <section id="encabezado-donantes" class="encabezado-gestion encabezado-donantes"><div><p class="etiqueta">Registro de donantes</p><h1>Conoce a quienes<br>quieren colaborar.</h1><p>Registra una persona u organización y sus preferencias de colaboración. Puedes consultar sus datos, corregirlos o eliminar el registro.</p></div><aside class="nota-registro"><h2>Revisa los datos de contacto</h2><p>Anota el correo y el celular de la persona u organización. El registro es opcional para donar; marca el permiso de contacto cuando tengas su autorización.</p></aside></section>
+        <section class="seccion zona-gestion">
+            <div class="panel-formulario"><h2 id="titulo-donante">Registrar donante</h2><p>Completa los datos del donante. El permiso de contacto es opcional.</p>
+                
+                <form id="formulario-donante">
+                    <div class="campo" id="campo-error-nombre"><label for="nombre-donante">Nombre de la persona u organización</label><div class="control"><input id="nombre-donante" name="nombre" type="text" aria-describedby="ayuda-nombre error-nombre"></div><p id="ayuda-nombre" class="ayuda">De 5 a 100 caracteres. Para una organización, escribe su nombre.</p><p id="error-nombre" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-tipo"><label for="tipo-donante">Tipo de donante</label><div class="control"><select id="tipo-donante" name="tipo" aria-describedby="error-tipo"><option value="">Selecciona una opción</option><option value="Persona">Persona</option><option value="Organización">Organización</option></select></div><p id="error-tipo" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-correo"><label for="correo-donante">Correo de contacto</label><div class="control"><input id="correo-donante" name="correo" type="text" aria-describedby="error-correo"></div><p id="error-correo" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-celular"><label for="celular-donante">Celular de contacto</label><div class="control"><input id="celular-donante" name="celular" type="text" aria-describedby="ayuda-celular error-celular"></div><p id="ayuda-celular" class="ayuda">Formato local de Ecuador: 10 dígitos, empieza con 09, sin espacios.</p><p id="error-celular" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-sector"><label for="sector-donante">Ciudad y sector</label><div class="control"><input id="sector-donante" name="sector" type="text" aria-describedby="ayuda-sector error-sector"></div><p id="ayuda-sector" class="ayuda">Indica la ciudad y el sector en 5 a 120 caracteres.</p><p id="error-sector" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-interes"><label for="interes-donante">Principal interés de colaboración</label><div class="control"><select id="interes-donante" name="interes" aria-describedby="error-interes"><option value="">Selecciona una categoría</option><option value="Alimentos">Alimentos</option><option value="Ropa">Ropa</option><option value="Juguetes">Juguetes</option></select></div><p id="error-interes" class="error" aria-live="polite"></p></div>
+                    <fieldset class="campo campo-ancho" id="campo-error-frecuencia"><legend>Frecuencia con la que desea colaborar</legend><label class="opcion"><input type="radio" name="frecuencia" value="Ocasional"> Ocasional</label><label class="opcion"><input type="radio" name="frecuencia" value="Mensual"> Mensual</label><p class="ayuda">Es una preferencia; no programa aportes ni crea compromisos automáticos.</p><p id="error-frecuencia" class="error" aria-live="polite"></p></fieldset>
+                    <div class="campo campo-ancho" id="campo-error-detalle"><label for="detalle-donante">¿Cómo desea colaborar?</label><div class="control"><textarea id="detalle-donante" name="detalle" rows="3" aria-describedby="ayuda-detalle error-detalle"></textarea></div><p id="ayuda-detalle" class="ayuda">Describe su aporte previsto en 15 a 300 caracteres.</p><p id="error-detalle" class="error" aria-live="polite"></p></div>
+                    <div class="campo campo-ancho"><label class="opcion" for="contacto-donante"><input id="contacto-donante" name="contacto" type="checkbox"> Esta persona u organización permite que la contacten por su aporte</label><p class="ayuda">Márcala solo si cuentas con autorización para contactar a la persona u organización.</p></div>
+                    <div class="acciones-formulario"><button id="guardar-donante" class="boton boton-principal" type="button">Registrar donante</button><button id="cancelar-donante" class="boton boton-secundario" type="button" style="display: none;">Cancelar edición</button></div>
+                    <p id="estado-donante" class="estado" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+            <section class="panel-registros" aria-labelledby="titulo-donantes"><div class="cabecera-registros"><h2 id="titulo-donantes">Donantes registrados</h2><span id="total-donantes" class="contador">0 donantes</span></div><p id="resumen-donantes" class="ayuda" role="status" aria-live="polite">Todavía no hay personas u organizaciones registradas.</p><p id="sin-donantes" class="vacio">Completa el formulario para registrar al primer donante.</p><div id="lista-donantes"></div></section>
+        </section>
+    </main>
+    <footer class="pie"><div class="contenido-pie"><p>Manos Solidarias</p><a href="como-donar.html" onclick="return confirmarSalida();">Volver a Cómo donar</a><a href="#cabecera">Volver arriba ↑</a><a href="index.html#proposito" onclick="return confirmarSalida();">Nuestro propósito</a></div></footer>
+    <script src="js/donantes.js"></script>
+    <script src="js/navegacion.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Cesar Ramon Quimis Tomala">
+    <meta name="description" content="Registra y gestiona puntos de recolección, sus horarios y artículos aceptados.">
+    <title>Manos Solidarias | Gestión de puntos</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        #encabezado-puntos { background-color: #ffffff; }
+        .nombre-punto { color: #a31d2b; }
+    </style>
+</head>
+<body>
+    <header id="cabecera"><a class="marca" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt="Manos en tono piel sosteniendo un corazón rojo"><span class="nombre-marca">manos<span>solidarias</span></span></a><button id="boton-menu" class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-sitio">Menú</button>
+        <nav id="menu-sitio" class="menu" aria-label="Navegación principal">
+            <a href="index.html" onclick="return confirmarSalida();">Inicio</a>
+            <a href="campanas.html" onclick="return confirmarSalida();">Campañas</a>
+            <a href="como-donar.html" onclick="return confirmarSalida();">Cómo donar</a>
+            <a href="voluntariado.html" onclick="return confirmarSalida();">Voluntariado</a>
+            <a href="puntos-recoleccion.html" onclick="return confirmarSalida();">Dónde entregar</a>
+            <div class="gestion-nav">
+                <button id="boton-gestion" class="boton-gestion pagina-actual" type="button" aria-expanded="false" aria-controls="enlaces-gestion">Gestión <span aria-hidden="true">▾</span></button>
+                <div id="enlaces-gestion" class="enlaces-gestion" style="display: none;">
+                    <a href="crud-campanas.html" onclick="return confirmarSalida();">Gestión de campañas</a>
+                    <a href="crud-donaciones.html" onclick="return confirmarSalida();">Registro de donaciones</a>
+                    <a href="crud-donantes.html" onclick="return confirmarSalida();">Registro de donantes</a>
+                    <a href="crud-voluntarios.html" onclick="return confirmarSalida();">Registro de voluntarios</a>
+                    <a class="pagina-actual" aria-current="page" href="crud-puntos.html" onclick="return confirmarSalida();">Gestión de puntos</a>
+                </div>
+            </div>
+        </nav></header>
+    <main>
+        <div class="ubicacion-gestion"><nav class="ruta-pagina" aria-label="Ubicación en el sitio"><a href="index.html" onclick="return confirmarSalida();">Inicio</a><span aria-hidden="true">/</span><span>Gestión</span><span aria-hidden="true">/</span><span>Gestión de puntos</span></nav><p class="regreso-contexto"><a href="puntos-recoleccion.html" onclick="return confirmarSalida();">Volver al directorio de puntos</a></p></div>
+        <section id="encabezado-puntos" class="encabezado-gestion encabezado-puntos"><div><p class="etiqueta">Gestión de puntos</p><h1>Organiza el lugar<br>donde se recibe la ayuda.</h1><p>Registra una dirección, su responsable y el horario de recepción. Puedes consultar los datos, corregirlos o eliminar el punto.</p></div><aside class="nota-registro"><h2>Revisa los datos del punto</h2><p>Comprueba la dirección, los artículos aceptados y los horarios de recepción antes de guardar.</p></aside></section>
+        <section class="seccion zona-gestion">
+            <div class="panel-formulario"><h2 id="titulo-punto">Registrar punto</h2><p>Completa los datos del punto. La indicación de acceso sin escalones es opcional.</p>
+                
+                <form id="formulario-punto">
+                    <div class="campo" id="campo-error-nombre"><label for="nombre-punto">Nombre del punto</label><div class="control"><input id="nombre-punto" name="nombre" type="text" aria-describedby="ayuda-nombre error-nombre"></div><p id="ayuda-nombre" class="ayuda">De 5 a 100 caracteres.</p><p id="error-nombre" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-sector"><label for="sector-punto">Ciudad y sector</label><div class="control"><input id="sector-punto" name="sector" type="text" aria-describedby="ayuda-sector error-sector"></div><p id="ayuda-sector" class="ayuda">Indica la ciudad y el sector en 5 a 120 caracteres.</p><p id="error-sector" class="error" aria-live="polite"></p></div>
+                    <div class="campo campo-ancho" id="campo-error-direccion"><label for="direccion-punto">Dirección de recepción</label><div class="control"><input id="direccion-punto" name="direccion" type="text" aria-describedby="ayuda-direccion error-direccion"></div><p id="ayuda-direccion" class="ayuda">De 10 a 160 caracteres. Indica las calles y una referencia para encontrar la entrada.</p><p id="error-direccion" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-responsable"><label for="responsable-punto">Nombre de la persona responsable</label><div class="control"><input id="responsable-punto" name="responsable" type="text" aria-describedby="ayuda-responsable error-responsable"></div><p id="ayuda-responsable" class="ayuda">De 5 a 80 caracteres.</p><p id="error-responsable" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-correo"><label for="correo-punto">Correo de contacto</label><div class="control"><input id="correo-punto" name="correo" type="text" aria-describedby="error-correo"></div><p id="error-correo" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-celular"><label for="celular-punto">Celular de contacto</label><div class="control"><input id="celular-punto" name="celular" type="text" aria-describedby="ayuda-celular error-celular"></div><p id="ayuda-celular" class="ayuda">Diez dígitos, comienza con 09, sin espacios ni signos.</p><p id="error-celular" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-articulos"><label for="articulos-punto">Artículos aceptados</label><div class="control"><select id="articulos-punto" name="articulos" aria-describedby="ayuda-articulos error-articulos"><option value="">Selecciona una opción</option><option value="Alimentos">Alimentos</option><option value="Ropa">Ropa</option><option value="Juguetes">Juguetes</option><option value="Mixto">Mixto</option></select></div><p id="ayuda-articulos" class="ayuda">Mixto indica que el punto acepta alimentos, ropa y juguetes.</p><p id="error-articulos" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-dias"><label for="dias-punto">Días de recepción</label><div class="control"><select id="dias-punto" name="dias" aria-describedby="error-dias"><option value="">Selecciona los días</option><option value="Lunes a viernes">Lunes a viernes</option><option value="Sábados">Sábados</option><option value="Domingos">Domingos</option></select></div><p id="error-dias" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-apertura"><label for="apertura-punto">Hora de apertura</label><div class="control"><input id="apertura-punto" name="apertura" type="text" aria-describedby="ayuda-apertura error-apertura"></div><p id="ayuda-apertura" class="ayuda">Formato de 24 horas HH:MM, como 09:00.</p><p id="error-apertura" class="error" aria-live="polite"></p></div>
+                    <div class="campo" id="campo-error-cierre"><label for="cierre-punto">Hora de cierre</label><div class="control"><input id="cierre-punto" name="cierre" type="text" aria-describedby="ayuda-cierre error-cierre"></div><p id="ayuda-cierre" class="ayuda">Formato HH:MM y posterior a la apertura, dentro del mismo día.</p><p id="error-cierre" class="error" aria-live="polite"></p></div>
+                    <div class="campo campo-ancho" id="campo-error-indicaciones"><label for="indicaciones-punto">Indicaciones de entrega y acceso</label><div class="control"><textarea id="indicaciones-punto" name="indicaciones" rows="3" aria-describedby="ayuda-indicaciones error-indicaciones"></textarea></div><p id="ayuda-indicaciones" class="ayuda">De 15 a 300 caracteres. Explica dónde y cómo se reciben los artículos.</p><p id="error-indicaciones" class="error" aria-live="polite"></p></div>
+                    <div class="campo campo-ancho"><label class="opcion" for="acceso-punto"><input id="acceso-punto" name="acceso" type="checkbox"> El punto cuenta con acceso sin escalones</label><p class="ayuda">Es opcional. Sin marcar significa que ese dato no está confirmado; no describe toda la accesibilidad del lugar.</p></div>
+                    <div class="acciones-formulario"><button id="guardar-punto" class="boton boton-principal" type="button">Registrar punto</button><button id="cancelar-punto" class="boton boton-secundario" type="button" style="display: none;">Cancelar edición</button></div><p id="estado-punto" class="estado" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+            <section class="panel-registros" aria-labelledby="titulo-registros-puntos"><div class="cabecera-registros"><h2 id="titulo-registros-puntos">Puntos registrados</h2><span id="total-puntos" class="contador">0 puntos</span></div><p id="resumen-puntos" class="ayuda" role="status" aria-live="polite">Todavía no hay puntos registrados.</p><p id="sin-puntos" class="vacio">Completa el formulario para registrar el primer punto.</p><div id="lista-puntos"></div></section>
+        </section>
+    </main>
+    <footer class="pie"><div class="contenido-pie"><p>Manos Solidarias</p><a href="puntos-recoleccion.html" onclick="return confirmarSalida();">Volver al directorio de puntos</a><a href="#cabecera">Volver arriba ↑</a><a href="index.html#proposito" onclick="return confirmarSalida();">Nuestro propósito</a></div></footer>
+    <script src="js/puntos.js"></script>
+    <script src="js/navegacion.js"></script>
+</body>
+</html>

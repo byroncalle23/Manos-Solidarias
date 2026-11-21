@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Cesar Ramon Quimis Tomala">
+    <meta name="description" content="Consulta puntos de recolección de ejemplo, artículos aceptados, horarios y detalles de acceso.">
+    <title>Manos Solidarias | Puntos de recolección</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        #presentacion-puntos { background-color: #ffffff; }
+        .nota-directorio { color: #65595c; }
+    </style>
+</head>
+<body>
+    <header id="cabecera">
+        <a class="marca" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt="Manos en tono piel sosteniendo un corazón rojo"><span class="nombre-marca">manos<span>solidarias</span></span></a>
+        <button id="boton-menu" class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-sitio">Menú</button>
+        <nav id="menu-sitio" class="menu" aria-label="Navegación principal">
+            <a href="index.html" onclick="return confirmarSalida();">Inicio</a>
+            <a href="campanas.html" onclick="return confirmarSalida();">Campañas</a>
+            <a href="como-donar.html" onclick="return confirmarSalida();">Cómo donar</a>
+            <a href="voluntariado.html" onclick="return confirmarSalida();">Voluntariado</a>
+            <a class="pagina-actual" aria-current="page" href="puntos-recoleccion.html" onclick="return confirmarSalida();">Dónde entregar</a>
+            <div class="gestion-nav">
+                <button id="boton-gestion" class="boton-gestion" type="button" aria-expanded="false" aria-controls="enlaces-gestion">Gestión <span aria-hidden="true">▾</span></button>
+                <div id="enlaces-gestion" class="enlaces-gestion" style="display: none;">
+                    <a href="crud-campanas.html" onclick="return confirmarSalida();">Gestión de campañas</a>
+                    <a href="crud-donaciones.html" onclick="return confirmarSalida();">Registro de donaciones</a>
+                    <a href="crud-donantes.html" onclick="return confirmarSalida();">Registro de donantes</a>
+                    <a href="crud-voluntarios.html" onclick="return confirmarSalida();">Registro de voluntarios</a>
+                    <a href="crud-puntos.html" onclick="return confirmarSalida();">Gestión de puntos</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="presentacion-puntos" class="seccion portada-puntos">
+            <div class="texto-puntos"><p class="etiqueta">Puntos de recolección</p><h1>Antes de salir,<br>revisa dónde entregar.</h1><p class="introduccion">Consulta los artículos que recibe cada punto y su horario. Llevar tu aporte al lugar adecuado facilita el trabajo de quienes lo reciben.</p><div class="acciones-portada"><a class="boton boton-principal" href="#directorio-puntos">Consultar los puntos</a><a class="enlace-catalogo" href="como-donar.html" onclick="return confirmarSalida();">Preparar mi aporte</a></div></div>
+            <figure class="foto-puntos">
+                <img src="img/recepcion-aportes.png" alt="Mesa de recepción de donaciones con voluntarios y cajas separadas para alimentos, ropa y juguetes en un centro comunitario">
+                <figcaption class="nota-directorio">Entrega los artículos al equipo responsable y sigue sus indicaciones de recepción.</figcaption>
+            </figure>
+        </section>
+        <section id="directorio-puntos" class="seccion directorio-puntos" aria-labelledby="titulo-puntos">
+            <div class="titulo-seccion"><div><h2 id="titulo-puntos">Busca por el aporte que llevas</h2><p>Elige un artículo para consultar los puntos que lo reciben.</p></div><span id="cantidad-puntos" class="contador" role="status" aria-live="polite">3 puntos</span></div>
+            <div class="filtros-catalogo" aria-label="Filtrar puntos por artículos aceptados"><button id="puntos-todos" class="filtro filtro-activo" type="button" aria-pressed="true">Todos</button><button id="puntos-alimentos" class="filtro" type="button" aria-pressed="false">Alimentos</button><button id="puntos-ropa" class="filtro" type="button" aria-pressed="false">Ropa</button><button id="puntos-juguetes" class="filtro" type="button" aria-pressed="false">Juguetes</button></div>
+            <div class="lista-directorio">
+                <article id="punto-norte" class="tarjeta-punto punto-alimentos punto-ropa">
+                    <p class="etiqueta">Sector Norte</p><h3>Mesa comunitaria del Norte</h3><p>Recepción de alimentos cerrados y ropa limpia.</p><div class="articulos-punto"><span>Alimentos</span><span>Ropa</span></div><p><strong>Dirección:</strong> Calle Norte y Pasaje Solidario, entrada principal.</p><p><strong>Horario:</strong> lunes a viernes, de 09:00 a 13:00.</p>
+                    <button id="consultar-punto-1" class="enlace-boton" type="button" aria-expanded="false" aria-controls="detalle-punto-1">Ver detalles de acceso</button>
+                    <div id="detalle-punto-1" class="detalle-punto" style="display: none;"><p><strong>Entrada:</strong> mesa junto al acceso principal del salón comunitario.</p><p><strong>Acceso sin escalones:</strong> indicado.</p><p><strong>Referencia de contacto:</strong> norte@example.com.</p><p>Entrega las bolsas separadas por tipo de artículo al equipo de recepción.</p></div>
+                </article>
+                <article id="punto-campus" class="tarjeta-punto punto-ropa punto-juguetes">
+                    <p class="etiqueta">Sector Centro</p><h3>Recepción del campus</h3><p>Un espacio de apoyo para reunir prendas y juguetes completos.</p><div class="articulos-punto"><span>Ropa</span><span>Juguetes</span></div><p><strong>Dirección:</strong> Avenida Central, patio de ingreso del campus.</p><p><strong>Horario:</strong> lunes a viernes, de 14:00 a 18:00.</p>
+                    <button id="consultar-punto-2" class="enlace-boton" type="button" aria-expanded="false" aria-controls="detalle-punto-2">Ver detalles de acceso</button>
+                    <div id="detalle-punto-2" class="detalle-punto" style="display: none;"><p><strong>Entrada:</strong> mesa identificada en el patio del edificio.</p><p><strong>Acceso sin escalones:</strong> sin confirmar.</p><p><strong>Referencia de contacto:</strong> campus@example.com.</p><p>Guarda juntas las piezas de cada juguete y separa la ropa por talla.</p></div>
+                </article>
+                <article id="punto-sur" class="tarjeta-punto punto-alimentos punto-juguetes">
+                    <p class="etiqueta">Sector Sur</p><h3>Encuentro barrial del Sur</h3><p>Recepción de fin de semana para alimentos y juguetes.</p><div class="articulos-punto"><span>Alimentos</span><span>Juguetes</span></div><p><strong>Dirección:</strong> Pasaje Sur y Calle de la Comunidad, salón barrial.</p><p><strong>Horario:</strong> sábados, de 09:00 a 12:00.</p>
+                    <button id="consultar-punto-3" class="enlace-boton" type="button" aria-expanded="false" aria-controls="detalle-punto-3">Ver detalles de acceso</button>
+                    <div id="detalle-punto-3" class="detalle-punto" style="display: none;"><p><strong>Entrada:</strong> acceso lateral del salón barrial.</p><p><strong>Acceso sin escalones:</strong> indicado.</p><p><strong>Referencia de contacto:</strong> sur@example.com.</p><p>Conserva los alimentos en su empaque original y mantén los juguetes en otra caja.</p></div>
+                </article>
+            </div>
+        </section>
+        <section class="seccion indicaciones-puntos"><h2>Confirma antes de desplazarte</h2><p>Pregunta si el punto sigue recibiendo artículos y si tiene condiciones particulares de acceso. Evita dejar bolsas o cajas cuando el equipo no esté presente.</p><a href="como-donar.html#articulos-aceptados" onclick="return confirmarSalida();">Revisar cómo preparar los artículos</a></section>
+        <section class="seccion invitacion-donante"><div><h2>Elige primero la campaña que quieres apoyar</h2><p>Consulta su objetivo, los artículos solicitados y el lugar concreto indicado para la entrega.</p></div><a class="boton boton-principal" href="campanas.html" onclick="return confirmarSalida();">Explorar campañas</a></section>
+    </main>
+    <footer class="pie"><div class="contenido-pie"><a class="marca marca-pie" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt=""><span class="nombre-marca">manos<span>solidarias</span></span></a><p>Donaciones y campañas solidarias</p><a href="#cabecera">Volver arriba ↑</a><a href="index.html#proposito" onclick="return confirmarSalida();">Nuestro propósito</a></div></footer>
+    <script src="js/puntos-recoleccion.js"></script>
+    <script src="js/navegacion.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Méndez Rojas César Nicolas">
+    <meta name="description" content="Consulta cómo preparar una donación, qué artículos revisar y cómo coordinar su entrega.">
+    <title>Manos Solidarias | Cómo donar</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        #guia-donacion { background-color: #ffffff; }
+        .nota-ilustracion { color: #65595c; }
+    </style>
+</head>
+<body>
+    <header id="cabecera">
+        <a class="marca" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt="Manos en tono piel sosteniendo un corazón rojo"><span class="nombre-marca">manos<span>solidarias</span></span></a>
+        <button id="boton-menu" class="boton-menu" type="button" aria-expanded="false" aria-controls="menu-sitio">Menú</button>
+        <nav id="menu-sitio" class="menu" aria-label="Navegación principal">
+            <a href="index.html" onclick="return confirmarSalida();">Inicio</a>
+            <a href="campanas.html" onclick="return confirmarSalida();">Campañas</a>
+            <a class="pagina-actual" aria-current="page" href="como-donar.html" onclick="return confirmarSalida();">Cómo donar</a>
+            <a href="voluntariado.html" onclick="return confirmarSalida();">Voluntariado</a>
+            <a href="puntos-recoleccion.html" onclick="return confirmarSalida();">Dónde entregar</a>
+            <div class="gestion-nav">
+                <button id="boton-gestion" class="boton-gestion" type="button" aria-expanded="false" aria-controls="enlaces-gestion">Gestión <span aria-hidden="true">▾</span></button>
+                <div id="enlaces-gestion" class="enlaces-gestion" style="display: none;">
+                    <a href="crud-campanas.html" onclick="return confirmarSalida();">Gestión de campañas</a>
+                    <a href="crud-donaciones.html" onclick="return confirmarSalida();">Registro de donaciones</a>
+                    <a href="crud-donantes.html" onclick="return confirmarSalida();">Registro de donantes</a>
+                    <a href="crud-voluntarios.html" onclick="return confirmarSalida();">Registro de voluntarios</a>
+                    <a href="crud-puntos.html" onclick="return confirmarSalida();">Gestión de puntos</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="guia-donacion" class="seccion portada-guia">
+            <div class="texto-guia">
+                <p class="etiqueta">Cómo donar</p>
+                <h1>Prepara tu ayuda.<br>Que llegue en buen estado.</h1>
+                <p class="introduccion">Antes de llenar una caja, revisa qué necesita la campaña. Aquí puedes consultar cómo escoger los artículos y preparar su entrega.</p>
+                <div class="acciones-portada"><a class="boton boton-principal" href="#articulos-aceptados">Revisar qué puedo donar</a><a class="enlace-catalogo" href="campanas.html" onclick="return confirmarSalida();">Consultar campañas</a></div>
+                
+            </div>
+            <figure class="foto-guia">
+                <img src="img/preparacion-donaciones.png" alt="Dos personas revisando ropa y separando alimentos cerrados para preparar cajas de donaciones">
+                <figcaption class="nota-ilustracion">Separa los artículos por tipo antes de empacarlos.</figcaption>
+            </figure>
+        </section>
+        <section class="seccion recorrido-donacion" aria-labelledby="titulo-recorrido">
+            <div class="titulo-seccion"><div><h2 id="titulo-recorrido">De la elección a la entrega</h2><p>Una preparación cuidadosa facilita la recepción de los artículos.</p></div></div>
+            <div class="lista-recorrido">
+                <article><span class="numero-recorrido" aria-hidden="true">01</span><h3>Consulta la campaña</h3><p>Lee su objetivo, a quién ayuda y qué artículos acepta. Revisa la dirección y la fecha límite antes de preparar el aporte.</p><a href="campanas.html" onclick="return confirmarSalida();">Ver el catálogo de campañas</a></article>
+                <article><span class="numero-recorrido" aria-hidden="true">02</span><h3>Revisa y separa</h3><p>Comprueba el estado de cada artículo. Guarda los alimentos separados de la ropa y protege las piezas de los juguetes.</p><a href="#articulos-aceptados">Consultar los artículos</a></article>
+                <article><span class="numero-recorrido" aria-hidden="true">03</span><h3>Coordina y registra</h3><p>Confirma el horario con quien organiza la campaña y registra los artículos que vas a aportar.</p><a href="crud-donaciones.html" onclick="return confirmarSalida();">Registrar un aporte</a></article>
+            </div>
+        </section>
+        <section id="articulos-aceptados" class="seccion consulta-articulos" aria-labelledby="titulo-articulos">
+            <div class="encabezado-articulos"><h2 id="titulo-articulos">Revisa lo que vas a llevar</h2><p>Elige una categoría. Estas recomendaciones son generales; cada campaña indica qué necesita.</p></div>
+            <div class="filtros-catalogo" aria-label="Consultar recomendaciones por tipo de artículo">
+                <button id="articulo-alimentos" class="filtro filtro-activo" type="button" aria-pressed="true" aria-controls="detalle-alimentos">Alimentos</button>
+                <button id="articulo-ropa" class="filtro" type="button" aria-pressed="false" aria-controls="detalle-ropa">Ropa</button>
+                <button id="articulo-juguetes" class="filtro" type="button" aria-pressed="false" aria-controls="detalle-juguetes">Juguetes</button>
+            </div>
+            <p id="estado-articulos" class="ayuda" role="status" aria-live="polite">Mostrando recomendaciones de alimentos.</p>
+            <div id="detalle-alimentos" class="detalle-articulos">
+                <div><h3>Alimentos cerrados y vigentes</h3><p>Arroz, lentejas, pasta y conservas, cuando la campaña los solicite.</p><ul><li>Conserva el empaque original y comprueba la fecha de vencimiento.</li><li>Separa las latas dañadas o los paquetes abiertos.</li><li>Usa una caja limpia y seca para transportarlos.</li></ul></div>
+                <aside><h3>Antes de empacar</h3><p>Los productos que necesitan refrigeración requieren condiciones de recepción específicas. Consulta primero si la campaña puede recibirlos.</p></aside>
+            </div>
+            <div id="detalle-ropa" class="detalle-articulos" style="display: none;">
+                <div><h3>Ropa limpia y lista para usar</h3><p>Camisas, pantalones o prendas de abrigo, según lo que pida la campaña.</p><ul><li>Lava y seca las prendas antes de guardarlas.</li><li>Revisa costuras, cierres y botones.</li><li>Separa por talla y tipo para facilitar su clasificación.</li></ul></div>
+                <aside><h3>Revisa cada prenda</h3><p>Deja fuera la ropa húmeda, con moho o que necesite reparaciones para poder usarse. Confirma si la campaña recibe calzado.</p></aside>
+            </div>
+            <div id="detalle-juguetes" class="detalle-articulos" style="display: none;">
+                <div><h3>Juguetes limpios y completos</h3><p>Juegos de mesa, rompecabezas y otros juguetes adecuados para las edades que indique la campaña.</p><ul><li>Comprueba que estén todas las piezas.</li><li>Revisa que no haya partes rotas o bordes que puedan cortar.</li><li>Guarda las piezas pequeñas juntas y conserva las instrucciones si las tienes.</li></ul></div>
+                <aside><h3>Piensa en quien lo usará</h3><p>Consulta las edades de los beneficiarios. Un juguete con piezas pequeñas puede no ser adecuado para los niños que recibirán el aporte.</p></aside>
+            </div>
+        </section>
+        <section class="seccion preguntas-donacion" aria-labelledby="titulo-preguntas">
+            <div class="presentacion-preguntas"><h2 id="titulo-preguntas">Antes de donar</h2><p>Resuelve estas dudas antes de preparar tu aporte. Pulsa una pregunta para leer la respuesta.</p></div>
+            <div class="lista-preguntas">
+                <div class="pregunta"><h3><button id="pregunta-1" type="button" aria-expanded="false" aria-controls="respuesta-1">¿Puedo donar artículos usados?<span aria-hidden="true">+</span></button></h3><div id="respuesta-1" style="display: none;"><p>Sí, si la campaña los acepta. La ropa debe estar limpia y en buen estado; los juguetes, completos y sin partes rotas. Revisa las recomendaciones de cada categoría.</p></div></div>
+                <div class="pregunta"><h3><button id="pregunta-2" type="button" aria-expanded="false" aria-controls="respuesta-2">¿Cómo confirmo dónde entregar?<span aria-hidden="true">+</span></button></h3><div id="respuesta-2" style="display: none;"><p>Consulta la dirección, el horario y la fecha límite en la campaña elegida. Confirma los detalles con su responsable antes de desplazarte.</p></div></div>
+                <div class="pregunta"><h3><button id="pregunta-3" type="button" aria-expanded="false" aria-controls="respuesta-3">¿Registrarme como donante crea una cuenta?<span aria-hidden="true">+</span></button></h3><div id="respuesta-3" style="display: none;"><p>No. El registro permite anotar los datos y las preferencias de una persona u organización. Es opcional para registrar una donación.</p></div></div>
+                <div class="pregunta"><h3><button id="pregunta-4" type="button" aria-expanded="false" aria-controls="respuesta-4">¿Aquí puedo donar dinero?<span aria-hidden="true">+</span></button></h3><div id="respuesta-4" style="display: none;"><p>No. Puedes registrar donaciones de ropa, alimentos y juguetes. Consulta qué solicita cada campaña antes de preparar tu aporte.</p></div></div>
+            </div>
+        </section>
+        <section class="seccion indicaciones-puntos"><h2>Consulta dónde entregar</h2><p>Confirma la dirección indicada en la campaña que elegiste. También puedes consultar los horarios y artículos del directorio de puntos de recolección.</p><a href="puntos-recoleccion.html" onclick="return confirmarSalida();">Consultar puntos de recolección</a></section>
+        <section class="seccion invitacion-donante"><div><h2>También puedes registrar a quien colabora</h2><p>Anota los datos de contacto y las preferencias de colaboración. Este registro es opcional para donar.</p></div><a class="boton boton-principal" href="crud-donantes.html" onclick="return confirmarSalida();">Ir al registro de donantes</a></section>
+    </main>
+    <footer class="pie"><div class="contenido-pie"><a class="marca marca-pie" href="index.html" onclick="return confirmarSalida();"><img src="img/manos-corazon.png" alt=""><span class="nombre-marca">manos<span>solidarias</span></span></a><p>Donaciones y campañas solidarias</p><a href="#cabecera">Volver arriba ↑</a><a href="index.html#proposito" onclick="return confirmarSalida();">Nuestro propósito</a></div></footer>
+    <script src="js/como-donar.js"></script>
+    <script src="js/navegacion.js"></script>
+</body>
+</html>
